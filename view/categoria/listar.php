@@ -4,7 +4,8 @@
     <thead>
     <tr>
 
-        <th scope="col">Nome</th></br>
+        <th scope="col">Nome</th>
+        <th scope="col">Id</th></br>
 
     </tr>
     </thead>
@@ -17,8 +18,9 @@
 
             ?>
             <tr>
-                <td><?= $categoria['nome'] ?></td> </br>
+                <td><?= $categoria['nome'] ?>  | </td>
 
+                <a href="./index.php?classe=Categoria&acao=getById&param=<?$categoria['id']?>"> editar</a> </br>
                 </th>
             </tr>
             <?php
@@ -26,6 +28,7 @@
     }
     ?>
 
-    <tbody>
+
+    </tbody>
 </table>
 </html>

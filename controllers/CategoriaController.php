@@ -28,4 +28,13 @@ class CategoriaController
 
 
     }
+    public function getById()
+    {
+        $this->categoriaDAO = new CategoriaDAO();
+        $this->categoria = new Categoria();
+        $this->categoria->setId($_REQUEST['id']);
+        $this->categoria =$this->categoriaDAO->getById($this->categoria->getId());
+        if ($this->categoriaDAO->getById($this->categoria->getId()) ){
+
+    }
 }
