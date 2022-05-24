@@ -34,7 +34,7 @@ class CategoriaController
         $this->categoria = new Categoria();
         $this->categoria->setId($_REQUEST['id']);
         $this->categoria =$this->categoriaDAO->getById($this->categoria->getId());
-        if ($this->categoriaDAO->getById($this->categoria->getId()) ){
+        if ($this->categoriaDAO->getById($this->categoria->getId()) ){}
 
     }
 }
