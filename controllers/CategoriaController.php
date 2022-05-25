@@ -15,7 +15,9 @@ class CategoriaController
         if ($this->categoriaDAO->create($this->categoria)) {
             $_REQUEST['sucesso'] = true;
             $_REQUEST['categoriaNome'] = $this->categoria->getNome();
-            require_once 'view/categoria/cadastro.php';
+            require_once 'view/categoria/index.php';
+        } else {
+            echo 'Erro ao criar categoria';
         }
     }
 
@@ -28,13 +30,43 @@ class CategoriaController
 
 
     }
+
     public function getById()
     {
         $this->categoriaDAO = new CategoriaDAO();
         $this->categoria = new Categoria();
         $this->categoria->setId($_REQUEST['id']);
-        $this->categoria =$this->categoriaDAO->getById($this->categoria->getId());
-        if ($this->categoriaDAO->getById($this->categoria->getId()) ){}
+        if ($this->categoria = $this->categoriaDAO->getById($this->categoria->getId())) {
+            $_REQUEST['categoriaExibir'] = $this->categoria;
+            require_once 'view/categoria/editar.php';
+        } else {
+            echo 'Erro ao retornar categoria';
+        }
+    }
 
+    public function edit()
+    {
+        $this->categoria = new Categoria();
+        $this->categoriaDAO = new CategoriaDAO();
+        $this->categoria->setNome($_REQUEST['nome']);
+        $this->categoria->setId($_REQUEST['id']);
+        if ($this->categoriaDAO->edit($this->categoria)) {
+            echo 'Categoria editada com sucesso';
+        } else {
+            echo 'Erro ao editar categoria';
+        }
+    }
+
+    public function delete()
+    {
+        $this->categoria = new Categoria();
+        $this->categoriaDAO = new CategoriaDAO();
+        $this->categoria->setId($_REQUEST['idcat']);
+        var_dump($_REQUEST['idcat']);
+        if ($this->categoriaDAO->delete($this->categoria)) {
+            echo 'Categoria deletada com sucesso';
+        } else {
+            echo 'Erro ao deletar categoria';
+        }
     }
 }
