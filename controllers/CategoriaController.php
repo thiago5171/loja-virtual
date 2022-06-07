@@ -15,7 +15,7 @@ class CategoriaController
         if ($this->categoriaDAO->create($this->categoria)) {
             $_REQUEST['sucesso'] = true;
             $_REQUEST['categoriaNome'] = $this->categoria->getNome();
-            require_once 'view/categoria/index.php';
+            require_once 'view/categoria/create.php';
         } else {
             echo 'Erro ao criar categoria';
         }
