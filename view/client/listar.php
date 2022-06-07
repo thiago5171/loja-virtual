@@ -9,11 +9,13 @@
     <h2>Selecione o setor na qual deseja realizar as operações</h2>
 </head>
 <body>
+<table>
+
 <thead>
 <tr>
-    <th scope="col">Id</th>|
+    <th scope="col">Id</th>
 
-    <th scope="col">Nome</th> |
+    <th scope="col">Nome</th>
     <th scope="col">CPF</th>
 
 
@@ -30,25 +32,14 @@ if (isset($_REQUEST['clientLista'])) {
 
 
         ?>
-        <style type="text/css">
-            #lista {
-                display: flex;
 
-            }
-        </style>
-        <div id="lista">
-            <div>
+                <tr>
                 <td>  <?=$client['id'] ?></td>
 
-                <td><?= $client['nome'] ?> |</td>
-                <td><?= $client['cpf'] ?> |</td>
-            </div>
-        </div>
+                <td><?= $client['nome'] ?> </td>
+                <td><?= $client['cpf'] ?> </td>
+                </tr>
 
-        </div>
-
-        </th>
-        </tr>
         <?php
     }
 }
