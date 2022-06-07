@@ -9,7 +9,8 @@
     <h2>Selecione o setor na qual deseja realizar as operações</h2>
 </head>
 <body>
-<button> <a href="categoria/create.php" method="post"> Categoria </a></button>
+<button> <a href="categoria/create.php" method="post"> Categoria </a></button></br>
+<button> <a href="client/create.php" method="post"> Cliente </a></button>
 
 
 </body>

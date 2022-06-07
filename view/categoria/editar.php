@@ -9,8 +9,8 @@ if (isset($_REQUEST['categoriaExibir'])) {
         ?>
         <h2>Editar categoria</h2>
         <p> Caso queira modificar envie o formulário após as alterações</p>
-        <form action="create.php?classe=Categoria&acao=edit" method="post">
-            Id: <input name="id" value="<?= $categoria['id'] ?>"/> <br/>
+        <form action="index.php?classe=Categoria&acao=edit" method="post">
+            Id: <input readonly name="id" value="<?= $categoria['id'] ?>"/> <br/>
 
             Nome: <input name="nome" value="<?= $categoria['nome'] ?>" type="text"/> <br/>
 

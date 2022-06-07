@@ -16,7 +16,7 @@ class ClientController
         $this->client->setPassword($_REQUEST["password"]);
         if ($this->clientDAO->create($this->client)) {
             $_REQUEST['sucesso'] = true;
-            $_REQUEST['clietNome'] = $this->client->getName();
+            $_REQUEST['clientNome'] = $this->client->getName();
             require_once 'view/client/create.php';
         } else {
             echo 'Erro ao criar cliente';
@@ -38,7 +38,7 @@ class ClientController
         $this->client->setId($_REQUEST["id"]);
         if ($this->client = $this->clientDAO->getById($this->client->getId())) {
 
-            $_REQUEST['clienteExibir'] = $this->categoria;
+            $_REQUEST['clienteExibir'] = $this->client;
             require_once 'view/client/editar.php';
         } else {
             echo 'Erro ao retornar cliente';
@@ -57,6 +57,17 @@ class ClientController
             echo 'cliente editada com sucesso';
         } else {
             echo 'Erro ao editar cliente';
+        }
+    }
+    public function delete()
+    {
+        $this->client = new Client();
+        $this->clientDAO = new ClientDAO();
+        $this->client->setId($_REQUEST['id']);
+        if ($this->clientDAO->delete($this->client)) {
+            echo 'Cliente deletado com sucesso';
+        } else {
+            echo 'Erro ao deletar cliente';
         }
     }
 }
